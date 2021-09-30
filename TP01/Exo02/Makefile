@@ -13,7 +13,7 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 LIBRARY_DIRS := $(wildcard ../../customlibs/*)
 LIBRARY_LFLAGS = $(foreach d, $(LIBRARY_DIRS), -L$d)
-LIBRARY_IFLAGS = $(foreach d, $(LIBRARY_DIRS), -I$d)
+LIBRARY_IFLAGS = -I../../customlibs
 
 TARGET=$(shell basename ${PWD})
 
