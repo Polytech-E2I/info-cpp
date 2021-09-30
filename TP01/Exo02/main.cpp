@@ -1,18 +1,18 @@
 #include <cstdlib>
-#include "matrice.h"
+#include "matrix.h"
 
 int main(void)
 {
-    Matrice matrice{};
+    Matrix matrix{};
 
-    matrice.remplir();
-    matrice.print();
+    matrix.remplir();
+    matrix.print();
 
-    matrice.transpose();
-    matrice.print();
+    matrix.transpose();
+    matrix.print();
 
-    matrice.transpose();
-    matrice.print(Matrice::unidimensionnel);
+    matrix.transpose();
+    matrix.print(Matrix::unidimensional);
 
     return EXIT_SUCCESS;
 }
