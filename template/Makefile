@@ -1,5 +1,8 @@
-CC=g++
-CFLAGS=-std=c++17 -g -Wall -Wextra -Werror -Weffc++ -Wsign-conversion -pedantic-errors
+CXX=g++
+CXXFLAGS= -std=c++17 -g -Wall -Wextra -Werror -Weffc++ -Wsign-conversion -pedantic-errors
+
+SRC_DIR = .
+OBJ_DIR = $(SRC_DIR)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 HEADER_FILES := $(wildcard $(SRC_DIR)/*.h*)
@@ -10,9 +13,9 @@ TARGET=$(shell basename ${PWD})
 all: $(TARGET).out
 
 $(TARGET).out: $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(OBJ_FILES): $(SRC_FILES) $(HEADER_FILES)
-	$(CC) $(CFLAGS) -c -o $@ $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/%.h%
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 clean:
 	$(RM) *.out *.o
