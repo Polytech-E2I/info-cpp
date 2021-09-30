@@ -21,6 +21,8 @@ public:
         unidimensional
     };
 
+    Matrix(const Matrix::matrix_t& init = {});
+
     matrix_size_t getSize() const;
     void setSize(const matrix_size_t& size);
 

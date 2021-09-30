@@ -2,6 +2,16 @@
 #include <iomanip>
 #include "matrix.h"
 
+Matrix::Matrix(__attribute__((unused)) const Matrix::matrix_t& init)
+{
+    #if 0
+    for(const auto& row: init)
+    {
+        m_matrix.push_back(row);
+    }
+    #endif
+}
+
 Matrix::matrix_size_t Matrix::getSize() const
 {
     return { m_matrix.size(), m_matrix.at(0).size() };

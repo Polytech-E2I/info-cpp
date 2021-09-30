@@ -2,10 +2,13 @@
 #include <iostream>
 #include "matrix/matrix.h"
 
+#define MANUAL 0
+
 Matrix multiplyMatrixes(const Matrix& matrix1, const Matrix& matrix2);
 
 int main(void)
 {
+#if MANUAL
     Matrix matrix1{};
     Matrix matrix2{};
 
@@ -16,6 +19,23 @@ int main(void)
     matrix2.fill();
 
     std::cout << std::endl;
+#else
+    Matrix matrix1
+    {
+        {
+            {1, 2, 3},
+            {4, 5, 6}
+        }
+    };
+    Matrix matrix2
+    {
+        {
+            {1},
+            {2},
+            {3}
+        }
+    };
+#endif
 
     Matrix multiplied{multiplyMatrixes(matrix1, matrix2)};
 
