@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include "matrice.h"
 
 void Matrice::remplir()
 {
