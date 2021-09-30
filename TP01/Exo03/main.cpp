@@ -20,21 +20,8 @@ int main(void)
 
     std::cout << std::endl;
 #else
-    Matrix matrix1
-    {
-        {
-            {1, 2, 3},
-            {4, 5, 6}
-        }
-    };
-    Matrix matrix2
-    {
-        {
-            {1},
-            {2},
-            {3}
-        }
-    };
+    Matrix matrix1{ { {1, 2, 3}, {4, 5, 6} } };
+    Matrix matrix2{ { {1}, {2}, {3} } };
 #endif
 
     Matrix multiplied{multiplyMatrixes(matrix1, matrix2)};
