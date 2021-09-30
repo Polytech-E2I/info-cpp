@@ -2,6 +2,11 @@
 #include <iomanip>
 #include "matrix.h"
 
+Matrix::matrix_size_t Matrix::getSize()
+{
+    return { m_matrix.size(), m_matrix.at(0).size() };
+}
+
 void Matrix::fill()
 {
     std::size_t rows{}, columns{};
