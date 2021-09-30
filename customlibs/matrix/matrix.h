@@ -14,12 +14,12 @@ public:
     using matrix_size_t = std::array<std::size_t, 2>;
     enum Dimension
     {
-        multidimensional = false,
-        unidimensional = true
+        multidimensional,
+        unidimensional
     };
 
-    matrix_size_t getSize();
+    matrix_size_t getSize() const;
     void fill();
-    void print(const bool uni = multidimensional);
+    void print(const bool dimension = multidimensional) const;
     void transpose();
 };

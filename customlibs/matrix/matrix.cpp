@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "matrix.h"
 
-Matrix::matrix_size_t Matrix::getSize()
+Matrix::matrix_size_t Matrix::getSize() const
 {
     return { m_matrix.size(), m_matrix.at(0).size() };
 }
@@ -34,10 +34,10 @@ void Matrix::fill()
     }
 }
 
-void Matrix::print(const bool uni)
+void Matrix::print(const bool dimension) const
 {
 
-    if(uni)
+    if(dimension == Matrix::unidimensional)
     {
         std::cout << "Vecteur " << m_matrix.size()*m_matrix.at(0).size() << " :\n";
     }
@@ -54,13 +54,13 @@ void Matrix::print(const bool uni)
             std::cout << std::setw(4) << column << " ";
         }
 
-        if(!uni)
+        if(dimension == Matrix::multidimensional)
         {
             std::cout << "\n";
         }
     }
 
-    if(uni)
+    if(dimension == Matrix::unidimensional)
     {
         std::cout << "\n";
     }
