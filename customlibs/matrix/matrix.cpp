@@ -7,6 +7,26 @@ Matrix::matrix_size_t Matrix::getSize() const
     return { m_matrix.size(), m_matrix.at(0).size() };
 }
 
+void Matrix::setSize(const Matrix::matrix_size_t& size)
+{
+    m_matrix.resize(size.at(0));
+
+    for(auto& ligne: m_matrix)
+    {
+        ligne.resize(size.at(1));
+    }
+}
+
+Matrix::value_t Matrix::getValue(Matrix::matrix_coord_t coordinates) const
+{
+    return m_matrix.at(coordinates.at(0)).at(coordinates.at(1));
+}
+
+void Matrix::setValue(Matrix::matrix_coord_t coordinates, const Matrix::value_t value)
+{
+    m_matrix.at(coordinates.at(0)).at(coordinates.at(1)) = value;
+}
+
 void Matrix::fill()
 {
     std::size_t rows{}, columns{};

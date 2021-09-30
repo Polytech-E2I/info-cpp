@@ -11,7 +11,10 @@ private:
     matrix_t m_matrix{};
 
 public:
+    using value_t = column_t;
     using matrix_size_t = std::array<std::size_t, 2>;
+    using matrix_coord_t = matrix_size_t;
+
     enum Dimension
     {
         multidimensional,
@@ -19,6 +22,11 @@ public:
     };
 
     matrix_size_t getSize() const;
+    void setSize(const matrix_size_t& size);
+
+    value_t getValue(matrix_coord_t coordinates) const;
+    void setValue(matrix_coord_t coordinates, const value_t value);
+
     void fill();
     void print(const bool dimension = multidimensional) const;
     void transpose();
