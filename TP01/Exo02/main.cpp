@@ -5,7 +5,7 @@ int main(void)
 {
     Matrix matrix{};
 
-    matrix.remplir();
+    matrix.fill();
     matrix.print();
 
     matrix.transpose();

@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "matrix.h"
 
-void Matrix::remplir()
+void Matrix::fill()
 {
     std::size_t rows{}, columns{};
 

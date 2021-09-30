@@ -16,7 +16,7 @@ public:
         unidimensional = true
     };
 
-    void remplir();
+    void fill();
     void print(const bool uni = multidimensional);
     void transpose();
 };
