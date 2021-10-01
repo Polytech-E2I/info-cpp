@@ -2,6 +2,8 @@
 #include <iomanip>
 #include "matrix.h"
 
+Matrix::Matrix() : m_matrix{} {}
+
 Matrix::Matrix(const Matrix::matrix_t& init)
 {
     for(const auto& row: init)
