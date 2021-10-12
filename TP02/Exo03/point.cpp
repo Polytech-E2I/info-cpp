@@ -3,22 +3,22 @@
 #include <iostream>
 #include <iomanip>
 
-double Point::abcisse()
+double Point::abcisse() const
 {
     return m_x;
 }
 
-double Point::ordonnee()
+double Point::ordonnee() const
 {
     return m_y;
 }
 
-double Point::rho()
+double Point::rho() const
 {
     return sqrt(m_x*m_x + m_y*m_y);
 }
 
-double Point::theta()
+double Point::theta() const
 {
          if(m_x > 0)             return atan(m_y / m_x);
     else if(m_x < 0 && m_y >= 0) return atan(m_y / m_x) + PI;
@@ -43,7 +43,7 @@ void Point::rotation(double angle)
     m_y = sin(angle) * temp_x + cos(angle) * temp_y;
 }
 
-void Point::afficheCartesien()
+void Point::afficheCartesien() const
 {
     std::cout << std::fixed
         << "Coordonnées cartésiennes :"
@@ -52,7 +52,7 @@ void Point::afficheCartesien()
         << "\n";
 }
 
-void Point::affichePolaire()
+void Point::affichePolaire() const
 {
     std::cout << std::fixed
         << "Coordonnées polaires :"

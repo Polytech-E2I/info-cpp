@@ -11,16 +11,16 @@ public:
     {
     }
 
-    double abcisse();
-    double ordonnee();
-    double rho();
-    double theta();
+    double abcisse()  const;
+    double ordonnee() const;
+    double rho()      const;
+    double theta()    const;
 
     void translation(double tx, double ty);
     void rotation(double angle);
 
-    void afficheCartesien();
-    void affichePolaire();
+    void afficheCartesien() const;
+    void affichePolaire()   const;
 
 private:
 

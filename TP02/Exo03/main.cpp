@@ -22,5 +22,10 @@ int main(void)
     point.afficheCartesien();
     point.affichePolaire();
 
+    std::cout << "Test d'instance constante\n";
+    const Point test_const{ 4, 2 };
+    test_const.afficheCartesien();
+    test_const.affichePolaire();
+
     return EXIT_SUCCESS;
 }
