@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS= -std=c++17 -g -Wall -Wextra -Werror -Weffc++ -Wsign-conversion -pedantic-errors
+CXXFLAGS= -std=c++17 -g -Wall -Wextra -Werror -Wsign-conversion -pedantic-errors
 
 SRC_DIR = .
 OBJ_DIR = $(SRC_DIR)
