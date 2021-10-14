@@ -14,21 +14,12 @@ class Vecteur3d
 private:
     double m_x{}, m_y{}, m_z{};
 
-    #if QUESTION == Q1b
-    void init(double x, double y, double z)
-    {
-        m_x = x;
-        m_y = y;
-        m_z = z;
-    }
-    #elif QUESTION == Q1c
     inline void init(double x, double y, double z)
     {
         m_x = x;
         m_y = y;
         m_z = z;
     }
-    #endif
 
 public:
     #if QUESTION == Q1a
@@ -44,23 +35,18 @@ public:
         m_z = z;
     }
     #elif QUESTION == Q1b
-    Vecteur3d()
+    Vecteur3d(double x=0, double y=0, double z=0)
     {
-        std::cout << "Q1b : Constructeur par défaut via fonction membre" << "\n";
-        init(0, 0, 0);
-    }
-    Vecteur3d(double x, double y, double z)
-    {
-        std::cout << "Q1b : Constructeur avec paramètres via fonction membre" << "\n";
-        init(x, y, z);
+        std::cout << "Q1b : Constructeur par défaut avec paramètres" << "\n";
+        m_x = x;
+        m_y = y;
+        m_z = z;
     }
     #elif QUESTION == Q1c
     Vecteur3d(double x=0, double y=0, double z=0)
     {
-        std::cout << "Q1c : Constructeur par défaut avec paramètres" << "\n";
-        m_x = x;
-        m_y = y;
-        m_z = z;
+        std::cout << "Q1c : Constructeur par défaut avec paramètres et fonction inline" << "\n";
+        init(x, y, z);
     }
     #elif QUESTION == Q1e
     Vecteur3d(double x=0, double y=0, double z=0)
