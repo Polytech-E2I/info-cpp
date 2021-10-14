@@ -19,8 +19,8 @@ public:
     void            empiler(int element);
     int             depiler();
     void            afficher() const;
-    int             nb_elements() const;
-    static int      nb_piles();
+    inline int        nb_elements() const { return m_nb_elem; }
+    static inline int nb_piles() { return m_nb_piles; }
 
 private:
 

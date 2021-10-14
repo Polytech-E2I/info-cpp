@@ -57,13 +57,3 @@ void Pile::afficher() const
         std::cout << std::setw(2) << i << " : " << m_table[i] << "\n";
     }
 }
-
-int Pile::nb_elements() const
-{
-    return m_nb_elem;
-}
-
-int Pile::nb_piles()
-{
-    return Pile::m_nb_piles;
-}
