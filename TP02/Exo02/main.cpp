@@ -16,12 +16,14 @@ int main(void)
     pile1.empiler(6);
     pile1.afficher();
 
-    pile1.depiler();
-    pile1.depiler();
+    std::cout << "On dépile l'élément `" << pile1.depiler() << "`\n";
+    std::cout << "On dépile l'élément `" << pile1.depiler() << "`\n";
     pile1.afficher();
 
-    Pile pile2{ 3 };
-    Pile pile3{ 7 };
+    const Pile pile2{ 3 };
+    pile2.afficher();
+    const Pile pile3{ 7 };
+    pile3.afficher();
 
     std::cout   << "Il y a actuellement "
                 << Pile::nb_piles()

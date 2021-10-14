@@ -49,7 +49,7 @@ int Pile::depiler()
     }
 }
 
-void Pile::afficher()
+void Pile::afficher() const
 {
     std::cout << "État de la pile n." << m_id << " (max = " << m_max << "):\n";
     for(int i{} ; i < m_nb_elem ; ++i)
@@ -58,7 +58,7 @@ void Pile::afficher()
     }
 }
 
-int Pile::nb_elements()
+int Pile::nb_elements() const
 {
     return m_nb_elem;
 }

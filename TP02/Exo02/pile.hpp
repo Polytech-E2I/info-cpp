@@ -18,8 +18,8 @@ public:
 
     void            empiler(int element);
     int             depiler();
-    void            afficher();
-    int             nb_elements();
+    void            afficher() const;
+    int             nb_elements() const;
     static int      nb_piles();
 
 private:

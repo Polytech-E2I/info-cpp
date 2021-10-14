@@ -7,7 +7,7 @@
 #define Q1e 4 // La question 1d n'existe pas dans l'énoncé...
 
 // Régler cette directive pour compiler pour chaque question
-#define QUESTION Q1b
+#define QUESTION Q1e
 
 class Vecteur3d
 {
@@ -21,13 +21,24 @@ private:
         m_y = y;
         m_z = z;
     }
+    #elif QUESTION == Q1c
+    inline void init(double x, double y, double z)
+    {
+        m_x = x;
+        m_y = y;
+        m_z = z;
+    }
     #endif
 
 public:
     #if QUESTION == Q1a
-    Vecteur3d() {}
+    Vecteur3d()
+    {
+        std::cout << "Q1a : Constructeur par défaut" << "\n";
+    }
     Vecteur3d(double x, double y, double z)
     {
+        std::cout << "Q1a : Constructeur avec paramètres" << "\n";
         m_x = x;
         m_y = y;
         m_z = z;
@@ -35,15 +46,18 @@ public:
     #elif QUESTION == Q1b
     Vecteur3d()
     {
+        std::cout << "Q1b : Constructeur par défaut via fonction membre" << "\n";
         init(0, 0, 0);
     }
     Vecteur3d(double x, double y, double z)
     {
+        std::cout << "Q1b : Constructeur avec paramètres via fonction membre" << "\n";
         init(x, y, z);
     }
     #elif QUESTION == Q1c
     Vecteur3d(double x=0, double y=0, double z=0)
     {
+        std::cout << "Q1c : Constructeur par défaut avec paramètres" << "\n";
         m_x = x;
         m_y = y;
         m_z = z;
@@ -51,11 +65,21 @@ public:
     #elif QUESTION == Q1e
     Vecteur3d(double x=0, double y=0, double z=0)
     : m_x{x}, m_y{y}, m_z{z}
-    {}
+    {
+        std::cout << "Q1e : Constructeur avec liste d'initialisation" << "\n";
+    }
     #endif
+
     Vecteur3d(const Vecteur3d& object)
     : m_x{object.m_x}, m_y{object.m_y}, m_z{object.m_z}
-    {}
+    {
+        std::cout << "Constructeur de copie" << "\n";
+    }
+
+    ~Vecteur3d()
+    {
+        std::cout << "Destructeur" << "\n";
+    }
 
     void print() const
     {
@@ -66,9 +90,9 @@ public:
 int main(void)
 {
     const Vecteur3d vecteur0{};
-    const Vecteur3d vecteur{3, 4, 8};
-
     vecteur0.print();
+
+    const Vecteur3d vecteur{3, 4, 8};
     vecteur.print();
 
     const Vecteur3d vecteurCopy{vecteur};
