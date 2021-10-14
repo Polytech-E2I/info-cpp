@@ -1,9 +1,3 @@
-#define Q21 1
-#define Q22 2
-#define Q23 3
-
-#define QUESTION Q21
-
 #include "setofintegers.hpp"
 #include <iostream>
 #include <cstdlib>
@@ -26,7 +20,7 @@ int main(void)
     return EXIT_SUCCESS;
 }
 
-#elif QUESTION == Q22
+#else
 int main(int argc, char* argv[])
 {
     if(argc <= 1)
@@ -35,7 +29,11 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
+    #if QUESTION == Q22
     Set_Of_Integers set{argc - 1};
+    #else
+    Set_Of_Integers set{};
+    #endif
 
     for(int i{1} ; i < argc ; ++i)
     {
