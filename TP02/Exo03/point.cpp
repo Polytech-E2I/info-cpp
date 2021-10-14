@@ -3,21 +3,6 @@
 #include <iostream>
 #include <iomanip>
 
-double Point::abcisse() const
-{
-    return m_x;
-}
-
-double Point::ordonnee() const
-{
-    return m_y;
-}
-
-double Point::rho() const
-{
-    return sqrt(m_x*m_x + m_y*m_y);
-}
-
 double Point::theta() const
 {
          if(m_x > 0)             return atan(m_y / m_x);

@@ -11,9 +11,9 @@ public:
     {
     }
 
-    double abcisse()  const;
-    double ordonnee() const;
-    double rho()      const;
+    inline double abcisse() const { return m_x; }
+    inline double ordonnee() const { return m_y; }
+    inline double rho() const { return sqrt(m_x*m_x + m_y*m_y); }
     double theta()    const;
 
     void translation(double tx, double ty);
