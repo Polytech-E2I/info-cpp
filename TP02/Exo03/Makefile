@@ -12,7 +12,7 @@ TARGET=$(shell basename ${PWD})
 
 all: $(TARGET).out
 
-$(TARGET).out: $(OBJ_FILES)
+$(TARGET).out: $(OBJ_FILES) $(HEADER_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)/%.h%
