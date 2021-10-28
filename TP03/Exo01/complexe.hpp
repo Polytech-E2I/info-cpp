@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __COMPLEXE_HPP
+#define __COMPLEXE_HPP
 
 #include <iostream>
 
@@ -33,3 +34,5 @@ private:
     double m_re;
     double m_im;
 };
+
+#endif//__COMPLEXE_HPP

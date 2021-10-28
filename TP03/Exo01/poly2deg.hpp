@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __POLY2DEG_HPP
+#define __POLY2DEG_HPP
 
 #include "complexe.hpp"
 #include <array>
@@ -30,3 +31,5 @@ private:
     int m_b;
     int m_c;
 };
+
+#endif//__POLY2DEG_HPP
