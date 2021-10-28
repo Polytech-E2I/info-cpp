@@ -16,11 +16,13 @@ public:
         m_table = nullptr;
     }
 
-    void            empiler(int element);
-    int             depiler();
-    void            afficher() const;
-    inline int        nb_elements() const { return m_nb_elem; }
-    static inline int nb_piles() { return m_nb_piles; }
+    void                empiler     (int element);
+    int                 depiler     ();
+    void                afficher    () const;
+    inline int          nb_elements () const
+        { return m_nb_elem; }
+    static inline int   nb_piles    ()
+        { return m_nb_piles; }
 
 private:
 
