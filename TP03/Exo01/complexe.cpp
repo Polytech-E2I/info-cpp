@@ -32,21 +32,21 @@ void Complexe::print() const
 
 Complexe operator+(const Complexe& c1, const Complexe& c2)
 {
-    return Complexe(c1.m_re + c2.m_re, c1.m_im + c2.m_im);
+    return Complexe{ c1.m_re + c2.m_re, c1.m_im + c2.m_im };
 }
 
 Complexe operator-(const Complexe& c1, const Complexe& c2)
 {
-    return Complexe(c1.m_re - c2.m_re, c1.m_im - c2.m_im);
+    return Complexe{ c1.m_re - c2.m_re, c1.m_im - c2.m_im };
 }
 
 Complexe operator*(const Complexe& c1, const Complexe& c2)
 {
     return Complexe
-    (
+    {
         c1.m_re * c2.m_re - c1.m_im * c2.m_im,
         c1.m_re * c2.m_im + c2.m_re * c1.m_im
-    );
+    };
 }
 
 std::ostream& operator<<(std::ostream& out, const Complexe& object)
