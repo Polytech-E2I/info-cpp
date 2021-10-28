@@ -24,9 +24,12 @@ public:
 
     void print() const;
 
-    friend Complexe operator+(const Complexe& c1, const Complexe& c2);
-    friend Complexe operator-(const Complexe& c1, const Complexe& c2);
-    friend Complexe operator*(const Complexe& c1, const Complexe& c2);
+    Complexe operator+=(const Complexe& c);
+    Complexe operator-=(const Complexe& c);
+    Complexe operator*=(const Complexe& c);
+    Complexe operator+ (const Complexe& c) const;
+    Complexe operator- (const Complexe& c) const;
+    Complexe operator* (const Complexe& c) const;
 
     friend std::ostream& operator<<(std::ostream& out, const Complexe& object);
 

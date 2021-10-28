@@ -30,23 +30,48 @@ void Complexe::print() const
     std::cout << m_re << " " << (m_im >= 0 ? "+" : "-") << " " << (m_im >= 0 ? m_im : -m_im) << "i\n";
 }
 
-Complexe operator+(const Complexe& c1, const Complexe& c2)
+Complexe Complexe::operator+=(const Complexe& c)
 {
-    return Complexe{ c1.m_re + c2.m_re, c1.m_im + c2.m_im };
+    m_re += c.m_re;
+    m_im += c.m_im;
+
+    return *this;
 }
 
-Complexe operator-(const Complexe& c1, const Complexe& c2)
+Complexe Complexe::operator+(const Complexe& c) const
 {
-    return Complexe{ c1.m_re - c2.m_re, c1.m_im - c2.m_im };
+    Complexe temp{ c };
+    return temp += *this;
 }
 
-Complexe operator*(const Complexe& c1, const Complexe& c2)
+Complexe Complexe::operator-=(const Complexe& c)
 {
-    return Complexe
-    {
-        c1.m_re * c2.m_re - c1.m_im * c2.m_im,
-        c1.m_re * c2.m_im + c2.m_re * c1.m_im
-    };
+    m_re -= c.m_re;
+    m_im -= c.m_im;
+
+    return *this;
+}
+
+Complexe Complexe::operator-(const Complexe& c) const
+{
+    Complexe temp{ c };
+    temp -= *this;
+    return temp;
+}
+
+Complexe Complexe::operator*=(const Complexe& c)
+{
+    m_re = m_re * c.m_re - m_im * c.m_im;
+    m_im = m_re * c.m_im + c.m_re * m_im;
+
+    return *this;
+}
+
+Complexe Complexe::operator*(const Complexe& c) const
+{
+    Complexe temp{ c };
+    temp *= *this;
+    return temp;
 }
 
 std::ostream& operator<<(std::ostream& out, const Complexe& object)
