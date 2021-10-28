@@ -42,6 +42,16 @@ int main(int argc, char* argv[])
 
     std::cout << "Vous avez passé " << set.getCardinal() << " nombre" << (set.getCardinal() > 1 ? "s" : "") << ".\n";
 
+    std::cout << "Veuillez entrer un nombre à chercher : ";
+    int userInput{};
+    std::cin >> userInput;
+
+    std::cout
+        << "Le nombre " << userInput << " "
+        << (set.find(userInput) ? "se trouve" : "ne se trouve pas")
+        << " dans cet ensemble.\n"
+    ;
+
     return EXIT_SUCCESS;
 }
 
