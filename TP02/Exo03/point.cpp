@@ -10,6 +10,8 @@ double Point::theta() const
     else if(m_x < 0 && m_y < 0)  return atan(m_y / m_x) - PI;
     else if(m_x == 0 && m_y > 0) return PI / 2;
     else if(m_x == 0 && m_y < 0) return -PI / 2;
+
+    // Ce dernier cas ne devrait jamais arriver, il sert à débuguer
     else                         return INFINITY;
 }
 

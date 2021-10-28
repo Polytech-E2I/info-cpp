@@ -11,16 +11,19 @@ public:
     {
     }
 
-    inline double abcisse() const { return m_x; }
-    inline double ordonnee() const { return m_y; }
-    inline double rho() const { return sqrt(m_x*m_x + m_y*m_y); }
-    double theta()    const;
+    inline double abcisse   () const
+        { return m_x; }
+    inline double ordonnee  () const
+        { return m_y; }
+    inline double rho       () const
+        { return sqrt(m_x*m_x + m_y*m_y); }
+    double        theta     () const;
 
-    void translation(double tx, double ty);
-    void rotation(double angle);
+    void translation        (double tx, double ty);
+    void rotation           (double angle);
 
-    void afficheCartesien() const;
-    void affichePolaire()   const;
+    void afficheCartesien   () const;
+    void affichePolaire     () const;
 
 private:
 
