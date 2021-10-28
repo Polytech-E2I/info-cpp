@@ -40,8 +40,8 @@ Complexe Complexe::operator+=(const Complexe& c)
 
 Complexe Complexe::operator+(const Complexe& c) const
 {
-    Complexe temp{ c };
-    return temp += *this;
+    Complexe temp{ *this };
+    return temp += c;
 }
 
 Complexe Complexe::operator-=(const Complexe& c)
@@ -54,24 +54,25 @@ Complexe Complexe::operator-=(const Complexe& c)
 
 Complexe Complexe::operator-(const Complexe& c) const
 {
-    Complexe temp{ c };
-    temp -= *this;
-    return temp;
+    Complexe temp{ *this };
+    return temp -= c;
 }
 
 Complexe Complexe::operator*=(const Complexe& c)
 {
-    m_re = m_re * c.m_re - m_im * c.m_im;
-    m_im = m_re * c.m_im + c.m_re * m_im;
+    auto temp_re = m_re;
+    auto temp_im = m_im;
+
+    m_re = temp_re * c.m_re - temp_im * c.m_im;
+    m_im = temp_re * c.m_im + temp_im * c.m_re;
 
     return *this;
 }
 
 Complexe Complexe::operator*(const Complexe& c) const
 {
-    Complexe temp{ c };
-    temp *= *this;
-    return temp;
+    Complexe temp{ *this };
+    return temp *= c;
 }
 
 std::ostream& operator<<(std::ostream& out, const Complexe& object)
