@@ -45,7 +45,7 @@ int Pile::depiler()
     else
     {
         std::cerr << "Erreur : pile vide !\n";
-        //exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 }
 

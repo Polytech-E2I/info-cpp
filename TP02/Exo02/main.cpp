@@ -25,6 +25,14 @@ int main(void)
     const Pile pile3{ 7 };
     pile3.afficher();
 
+    Pile* pile4 = new Pile{ 2 };
+
+    std::cout   << "Il y a actuellement "
+                << Pile::nb_piles()
+                << " piles instanciées.\n";
+
+    delete pile4;
+
     std::cout   << "Il y a actuellement "
                 << Pile::nb_piles()
                 << " piles instanciées.\n";

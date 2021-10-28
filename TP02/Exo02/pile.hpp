@@ -14,6 +14,8 @@ public:
     {
         delete[] m_table;
         m_table = nullptr;
+
+        --Pile::m_nb_piles;
     }
 
     void                empiler     (int element);
