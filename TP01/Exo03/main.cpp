@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "matrix/matrix.h"
+#include "matrix.hpp"
 
 #define MANUAL 0
 

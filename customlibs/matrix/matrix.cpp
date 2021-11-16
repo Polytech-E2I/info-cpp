@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "matrix.h"
+#include "matrix.hpp"
 
 Matrix::Matrix() : m_matrix{} {}
 
