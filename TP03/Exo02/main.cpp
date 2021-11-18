@@ -29,11 +29,7 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
-    #if QUESTION == Q22
     Set_Of_Integers set{argc - 1};
-    #else
-    Set_Of_Integers set{};
-    #endif
 
     for(int i{1} ; i < argc ; ++i)
     {
