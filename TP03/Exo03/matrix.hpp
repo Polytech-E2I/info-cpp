@@ -26,8 +26,6 @@ public:
 
     Matrix();
     Matrix(const Matrix::matrix_t& init);
-    //Matrix(const std::array<int, 3>& init);
-    //Matrix(const std::array<std::array<int, 3>, 3>& init);
 
     matrix_size_t getSize() const;
     void setSize(const matrix_size_t& size);

@@ -12,24 +12,6 @@ Matrix::Matrix(const Matrix::matrix_t& init)
     }
 }
 
-#if 0
-Matrix::Matrix(const std::array<int, 3>& init)
-:   m_matrix( init.begin(), init.end() )
-{}
-
-Matrix::Matrix(const std::array<std::array<int, 3>, 3>& init)
-{
-    for(size_t i{} ; i < 3 ; ++i)
-    {
-        m_matrix.push_back(std::vector<int>(3));
-        for(size_t j{} ; j < 3 ; ++j)
-        {
-            m_matrix.at(i).push_back(init[i][j]);
-        }
-    }
-}
-#endif
-
 Matrix::matrix_size_t Matrix::getSize() const
 {
     return { m_matrix.size(), m_matrix.at(0).size() };
