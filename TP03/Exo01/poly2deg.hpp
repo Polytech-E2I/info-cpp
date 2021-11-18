@@ -21,11 +21,13 @@ public:
 
     ~Poly2deg(){}
 
+    int         getA() const;
+    int         getB() const;
+    int         getC() const;
+    std::string getString() const;
+
     void print() const;
     friend std::ostream& operator<<(std::ostream& out, const Poly2deg& object);
-    int getA() const;
-    int getB() const;
-    int getC() const;
 
     using racines_t = std::array<Complexe, 2>;
     racines_t solve() const;

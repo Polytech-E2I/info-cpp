@@ -2,18 +2,6 @@
 #include <iostream>
 #include <cmath>
 
-void Poly2deg::print() const
-{
-    std::cout << m_a << "x² + " << m_b << "x + " << m_c << "\n";
-}
-
-std::ostream& operator<<(std::ostream& out, const Poly2deg& object)
-{
-    out << object.m_a << "x² + " << object.m_b << "x + " << object.m_c;
-
-    return out;
-}
-
 int Poly2deg::getA() const
 {
     return m_a;
@@ -27,6 +15,28 @@ int Poly2deg::getB() const
 int Poly2deg::getC() const
 {
     return m_c;
+}
+
+std::string Poly2deg::getString() const
+{
+    return std::string
+    {
+        std::to_string(m_a) + "x² + "
+        + std::to_string(m_b) + "x + "
+        + std::to_string(m_c)
+    };
+}
+
+void Poly2deg::print() const
+{
+    std::cout << getString() << "\n";
+}
+
+std::ostream& operator<<(std::ostream& out, const Poly2deg& object)
+{
+    out << object.getString();
+
+    return out;
 }
 
 Poly2deg::racines_t Poly2deg::solve() const
