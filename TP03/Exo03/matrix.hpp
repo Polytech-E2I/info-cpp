@@ -11,8 +11,6 @@ protected:
     using column_t = int;
     using row_t = std::vector<column_t>;
     using matrix_t = std::vector<row_t>;
-private:
-    matrix_t m_matrix{};
 public:
     using value_t = column_t;
     using matrix_size_t = std::array<std::size_t, 2>;
@@ -35,7 +33,10 @@ public:
 
     void fill();
     void print(const bool dimension = multidimensional) const;
-    void transpose();
+    Matrix transpose();
+
+private:
+    matrix_t m_matrix{};
 };
 
 #endif//__MATRIX_HPP

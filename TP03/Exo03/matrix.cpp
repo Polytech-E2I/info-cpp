@@ -69,12 +69,21 @@ void Matrix::print(const bool dimension) const
 
     if(dimension == Matrix::unidimensional)
     {
-        std::cout << "Vecteur " << m_matrix.size()*m_matrix.at(0).size() << " :\n";
+        std::cout << "Vecteur " << getSize().at(0)*getSize().at(1) << " :\n";
     }
     else
     {
-        std::cout << "Matrice "
-             << m_matrix.size() << "x" << m_matrix.at(0).size() << " :\n";
+        if(getSize().at(0) == 1)
+        {
+            std::cout << "Vecteur ";
+        }
+        else
+        {
+            std::cout << "Matrice ";
+        }
+
+        std::cout
+            << getSize().at(0) << "x" << getSize().at(1) << " :\n";
     }
 
     for(const auto& row: m_matrix)
@@ -96,9 +105,9 @@ void Matrix::print(const bool dimension) const
     }
 }
 
-void Matrix::transpose()
+Matrix Matrix::transpose()
 {
-    matrix_t outMatrix(m_matrix.at(0).size(), row_t(m_matrix.size()));
+    matrix_t outMatrix(getSize().at(1), row_t(getSize().at(0)));
 
     for(std::size_t iLine{} ; iLine < m_matrix.size() ; ++iLine)
     {
@@ -108,5 +117,5 @@ void Matrix::transpose()
         }
     }
 
-    m_matrix = outMatrix;
+    return Matrix{ outMatrix };
 }

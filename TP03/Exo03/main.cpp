@@ -21,6 +21,7 @@ int main()
 
     vecteur.print();
     matrice.print();
+    matrice.transpose().print();
 
     return EXIT_SUCCESS;
 }
