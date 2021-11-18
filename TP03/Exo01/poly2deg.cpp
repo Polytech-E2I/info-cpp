@@ -45,17 +45,17 @@ Poly2deg::racines_t Poly2deg::solve() const
 
     double delta = m_b*m_b - 4*m_a*m_c;
 
-    if(delta == 0)
+    if(delta == 0) // Racine réelle double
     {
         racines[0].setRe(-m_b / (2.0*m_a)).setIm(0);
         racines[1].setRe(racines[0].getRe()).setIm(0);
     }
-    else if(delta > 0)
+    else if(delta > 0) // Racines réelles distinctes
     {
         racines[0].setRe((-m_b - sqrt(delta)) / (2.0*m_a)).setIm(0);
         racines[1].setRe((-m_b + sqrt(delta)) / (2.0*m_a)).setIm(0);
     }
-    else
+    else // Racines complexes
     {
         racines[0].setRe((-m_b / (2.0*m_a))).setIm(-sqrt(-delta)/(2.0*m_a));
         racines[1].setRe((-m_b / (2.0*m_a))).setIm(sqrt(-delta)/(2.0*m_a));
