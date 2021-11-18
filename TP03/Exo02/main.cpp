@@ -36,7 +36,11 @@ int main(int argc, char* argv[])
         set.add(atoi(argv[i]));
     }
 
-    std::cout << "Vous avez passé " << set.getCardinal() << " nombre" << (set.getCardinal() > 1 ? "s" : "") << ".\n";
+    std::cout
+        << "Vous avez passé " << set.getCardinal()
+        << " nombre" << (set.getCardinal() > 1 ? "s" : "")
+        << ".\n"
+    ;
 
     std::cout << "Veuillez entrer un nombre à chercher : ";
     int userInput{};
