@@ -18,13 +18,15 @@ public:
 
     ~Complexe(){}
 
-    double getRe() const;
-    double getIm() const;
+    double      getRe() const;
+    double      getIm() const;
+    std::string getString() const;
 
     Complexe& setRe(double a);
     Complexe& setIm(double b);
 
     void print() const;
+    friend std::ostream& operator<<(std::ostream& out, const Complexe& object);
 
     Complexe operator+=(const Complexe& c);
     Complexe operator-=(const Complexe& c);
@@ -32,8 +34,6 @@ public:
     Complexe operator+ (const Complexe& c) const;
     Complexe operator- (const Complexe& c) const;
     Complexe operator* (const Complexe& c) const;
-
-    friend std::ostream& operator<<(std::ostream& out, const Complexe& object);
 
 private:
     double m_re;

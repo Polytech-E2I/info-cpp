@@ -1,5 +1,6 @@
 #include "complexe.hpp"
 #include <iostream>
+#include <iomanip>
 
 double Complexe::getRe() const
 {
@@ -9,6 +10,18 @@ double Complexe::getRe() const
 double Complexe::getIm() const
 {
     return m_im;
+}
+
+std::string Complexe::getString() const
+{
+    std::ostringstream temp;
+    temp << std::fixed << std::setprecision(2)
+        << (m_re) << " "
+        << (m_im >= 0 ? "+" : "-") << " "
+        << (m_im >= 0 ? m_im : -m_im) << "i"
+    ;
+
+    return temp.str();
 }
 
 Complexe& Complexe::setRe(double a)
@@ -27,7 +40,14 @@ Complexe& Complexe::setIm(double b)
 
 void Complexe::print() const
 {
-    std::cout << m_re << " " << (m_im >= 0 ? "+" : "-") << " " << (m_im >= 0 ? m_im : -m_im) << "i\n";
+    std::cout << getString() << "\n";
+}
+
+std::ostream& operator<<(std::ostream& out, const Complexe& object)
+{
+    out << object.getString();
+
+    return out;
 }
 
 Complexe Complexe::operator+=(const Complexe& c)
@@ -73,11 +93,4 @@ Complexe Complexe::operator*(const Complexe& c) const
 {
     Complexe temp{ *this };
     return temp *= c;
-}
-
-std::ostream& operator<<(std::ostream& out, const Complexe& object)
-{
-    out << object.m_re << " " << (object.m_im >= 0 ? "+" : "-") << " " << (object.m_im >= 0 ? object.m_im : -object.m_im) << "i";
-
-    return out;
 }
