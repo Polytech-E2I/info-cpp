@@ -8,11 +8,15 @@ class Poly2deg
 {
 public:
     Poly2deg(int a=0, int b=0, int c=0)
-    : m_a{ a }, m_b{ b }, m_c{ c }
+        : m_a{ a }
+        , m_b{ b }
+        , m_c{ c }
     {}
 
     Poly2deg(const Poly2deg& object)
-    : m_a{ object.m_a }, m_b{ object.m_b }, m_c{ object.m_c }
+        : m_a{ object.m_a }
+        , m_b{ object.m_b }
+        , m_c{ object.m_c }
     {}
 
     ~Poly2deg(){}

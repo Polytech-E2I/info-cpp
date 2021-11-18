@@ -7,11 +7,13 @@ class Complexe
 {
 public:
     Complexe(double re=0, double im=0)
-    : m_re{ re }, m_im{ im }
+        : m_re{ re }
+        , m_im{ im }
     {}
 
     Complexe(const Complexe& object)
-    : m_re{ object.m_re }, m_im{object.m_im }
+        : m_re{ object.m_re }
+        , m_im{object.m_im }
     {}
 
     ~Complexe(){}
