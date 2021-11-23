@@ -4,6 +4,8 @@ if(${CMAKE_VERSION} VERSION_LESS 3.12)
     cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 endif()
 
+set(CMAKE_BUILD_PARALLEL_LEVEL 8)
+
 project(E2I4_CPP VERSION 1.0 LANGUAGES CXX)
 add_compile_options(-std=c++17 -g -Wall -Wextra -Werror -Wsign-conversion -pedantic-errors)
 
