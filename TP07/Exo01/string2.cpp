@@ -216,14 +216,14 @@ std::ostream& operator<<(std::ostream& out, const String& object)
 
 char& String::operator[] (int index)
 {
-    assert(index >= 0 && static_cast<std::size_t>(index) < longueur());
+    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
 
-    return m_array[index];
+    return m_array[index - 1];
 }
 
 const char& String::operator[] (int index) const
 {
-    assert(index >= 0 && static_cast<std::size_t>(index) < longueur());
+    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
 
-    return m_array[index];
+    return m_array[index - 1];
 }
