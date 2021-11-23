@@ -173,25 +173,28 @@ String& String::operator+=(char caractere)
     return *this;
 }
 
-String&  String::operator+(const String& object)
+String  String::operator+(const String& object) const
 {
-    concatene(object);
+    String temp{ *this };
+    temp.concatene(object);
 
-    return *this;
+    return temp;
 }
 
-String& String::operator+(const char* string)
+String  String::operator+(const char* string) const
 {
-    concatene(string);
+    String temp{ *this };
+    temp.concatene(string);
 
-    return *this;
+    return temp;
 }
 
-String& String::operator+(char caractere)
+String  String::operator+(char caractere) const
 {
-    concatene(caractere);
+    String temp{ *this };
+    temp.concatene(caractere);
 
-    return *this;
+    return temp;
 }
 
 String operator+(const char* string, const String& object)

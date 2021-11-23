@@ -26,11 +26,11 @@ public:
 
     String&     operator= (const String& object);
     String&     operator+=(const String& object);
-    String&     operator+(const String& object);
+    String      operator+(const String& object) const;
     String&     operator+=(const char* string);
-    String&     operator+(const char* string);
+    String      operator+(const char* string) const;
     String&     operator+=(char caractere);
-    String&     operator+(char caractere);
+    String      operator+(char caractere) const;
 
     friend std::ostream& operator<<(std::ostream& out, const String& object);
 
