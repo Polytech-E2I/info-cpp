@@ -9,9 +9,12 @@ int main(void)
     const String ch4("chaîne de caractères constante");
 
     ch1[1] = 'E'; // le premier caractère de la chaîne
+    cout << ch1 << endl;
     cout << ch4[1] << endl;
     ch1 = "<<<< " + ch2 + " >>>>";
     cout << ch1 << endl;
+
+    cout << ch4 + " et rien d'autre";
 #if 0
     cin >> ch2;
     ch2 += " de la classe Strin";
