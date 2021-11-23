@@ -96,14 +96,9 @@ void        String::concatene(const char* string)
 
 void        String::concatene(char caractere)
 {
-    auto* new_array{ new char[longueur() + 2] };
-    std::strcpy(new_array, m_array);
+    char string[]{ caractere, '\0' };
 
-    destroy();
-    m_array = new_array;
-
-    m_array[longueur()] = caractere;
-    m_array[longueur() + 1] = '\0';
+    concatene(string);
 }
 
 bool egal(const String& string1, const String& string2)
