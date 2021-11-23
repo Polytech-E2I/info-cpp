@@ -1,4 +1,4 @@
-#include "string1.h"
+#include "string2.h"
 #include <cassert>
 #include <iostream>
 
@@ -28,12 +28,7 @@ String::String(char caractere, std::size_t repetition)
 String::String(const String& object)
     : m_array{ new char[object.longueur() + 1] }
 {
-    for(std::size_t i{} ; i <= object.longueur() ; ++i)
-    {
-        m_array[i] = object.m_array[i];
-    }
-
-    m_array[object.longueur()] = '\0';
+    copy(object);
 }
 
 String::~String()
@@ -48,6 +43,16 @@ void String::destroy()
         delete[] m_array;
         m_array = nullptr;
     }
+}
+
+void String::copy(const String& object)
+{
+    for(std::size_t i{} ; i < object.longueur() ; ++i)
+    {
+        m_array[i] = object.m_array[i];
+    }
+
+    m_array[object.longueur()] = '\0';
 }
 
 std::size_t String::longueur()  const
@@ -83,27 +88,29 @@ void        String::saisie()
     std::cin.getline(m_array, string_max + 1);
 }
 
-void        String::concatene(const char* string)
+void        String::concatene(const String& object)
 {
-    auto* new_array{ new char[longueur() + std::strlen(string) + 1] };
+    auto* new_array{ new char[longueur() + object.longueur() + 1] };
     std::strcpy(new_array, m_array);
 
     destroy();
     m_array = new_array;
 
-    std::strcat(m_array, string);
+    std::strcat(m_array, object.m_array);
+}
+
+void        String::concatene(const char* string)
+{
+    String temp{ string };
+
+    concatene(temp);
 }
 
 void        String::concatene(char caractere)
 {
-    auto* new_array{ new char[longueur() + 2] };
-    std::strcpy(new_array, m_array);
+    String temp{ caractere, 1 };
 
-    destroy();
-    m_array = new_array;
-
-    m_array[longueur()] = caractere;
-    m_array[longueur() + 1] = '\0';
+    concatene(temp);
 }
 
 bool egal(const String& string1, const String& string2)
@@ -132,23 +139,91 @@ String      String::minuscule()
     return String{ new_array };
 }
 
-MyString& MyString::operator= (const MyString& str)
+String& String::operator= (const String& object)
 {
-	// self-assignment check
-	if (this == &str)
+	if (this == &object)
 		return *this;
 
-	// if data exists in the current string, delete it
-	if (m_data) delete[] m_data;
+	destroy();
 
-	m_length = str.m_length;
+    m_array = new char[object.longueur() + 1]{};
+    copy(object);
 
-	// copy the data from str to the implicit object
-	m_data = new char[str.m_length];
-
-	for (int i { 0 }; i < str.m_length; ++i)
-		m_data[i] = str.m_data[i];
-
-	// return the existing object so we can chain this operator
 	return *this;
+}
+
+String& String::operator+=(const String& object)
+{
+    concatene(object);
+
+    return *this;
+}
+
+String& String::operator+=(const char* string)
+{
+    concatene(string);
+
+    return *this;
+}
+
+String& String::operator+=(char caractere)
+{
+    concatene(caractere);
+
+    return *this;
+}
+
+String&  String::operator+(const String& object)
+{
+    concatene(object);
+
+    return *this;
+}
+
+String& String::operator+(const char* string)
+{
+    concatene(string);
+
+    return *this;
+}
+
+String& String::operator+(char caractere)
+{
+    concatene(caractere);
+
+    return *this;
+}
+
+String operator+(const char* string, const String& object)
+{
+    String temp{ string };
+    return temp += object;
+}
+
+String operator+(char caractere, const String& object)
+{
+    String temp{ caractere, 1 };
+    return temp += object;
+}
+
+
+std::ostream& operator<<(std::ostream& out, const String& object)
+{
+    out << object.m_array;
+
+    return out;
+}
+
+char& String::operator[] (int index)
+{
+    assert(index >= 0 && static_cast<std::size_t>(index) < longueur());
+
+    return m_array[index];
+}
+
+const char& String::operator[] (int index) const
+{
+    assert(index >= 0 && static_cast<std::size_t>(index) < longueur());
+
+    return m_array[index];
 }
