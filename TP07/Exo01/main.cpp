@@ -14,8 +14,7 @@ int main(void)
     ch1 = "<<<< " + ch2 + " >>>>";
     cout << ch1 << endl;
 
-    cout << ch4 + " et rien d'autre";
-#if 0
+    cout << ch4 + " et rien d'autre" << endl;
     cin >> ch2;
     ch2 += " de la classe Strin";
     ch2 += 'g';
@@ -26,7 +25,6 @@ int main(void)
     }
 
     cout << ch2.minuscule() << endl;
-#endif
 
     return EXIT_SUCCESS;
 }

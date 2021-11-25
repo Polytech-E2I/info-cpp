@@ -76,16 +76,18 @@ void        String::affiche()   const
     std::cout << m_array << "\n";
 }
 
-void        String::saisie()
+void        String::saisie(bool prompt = true, std::istream& in = std::cin)
 {
     destroy();
 
-    constexpr std::size_t string_max = 1024;
+    m_array = new char[g_string_max + 1];
 
-    m_array = new char[string_max + 1];
+    if(prompt)
+    {
+        std::cout << "Entrez une chaîne de caractères (max "<< g_string_max <<") : ";
+    }
 
-    std::cout << "Entrez une chaîne de caractères (max "<< string_max <<") : ";
-    std::cin.getline(m_array, string_max + 1);
+    in.getline(m_array, g_string_max + 1);
 }
 
 void        String::concatene(const String& object)
@@ -152,25 +154,18 @@ String& String::operator= (const String& object)
 	return *this;
 }
 
-String& String::operator+=(const String& object)
+char& String::operator[] (int index)
 {
-    concatene(object);
+    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
 
-    return *this;
+    return m_array[index - 1];
 }
 
-String& String::operator+=(const char* string)
+const char& String::operator[] (int index) const
 {
-    concatene(string);
+    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
 
-    return *this;
-}
-
-String& String::operator+=(char caractere)
-{
-    concatene(caractere);
-
-    return *this;
+    return m_array[index - 1];
 }
 
 String  String::operator+(const String& object) const
@@ -209,6 +204,26 @@ String operator+(char caractere, const String& object)
     return temp += object;
 }
 
+String& String::operator+=(const String& object)
+{
+    concatene(object);
+
+    return *this;
+}
+
+String& String::operator+=(const char* string)
+{
+    concatene(string);
+
+    return *this;
+}
+
+String& String::operator+=(char caractere)
+{
+    concatene(caractere);
+
+    return *this;
+}
 
 std::ostream& operator<<(std::ostream& out, const String& object)
 {
@@ -217,16 +232,19 @@ std::ostream& operator<<(std::ostream& out, const String& object)
     return out;
 }
 
-char& String::operator[] (int index)
+std::istream& operator>>(std::istream& in, String& object)
 {
-    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
+    object.saisie(false, in);
 
-    return m_array[index - 1];
+    return in;
 }
 
-const char& String::operator[] (int index) const
+bool String::operator==(const String& object)
 {
-    assert(index >= 1 && static_cast<std::size_t>(index) <= longueur());
+    return egal(*this, object);
+}
 
-    return m_array[index - 1];
+bool String::operator!=(const String& object)
+{
+    return !egal(*this, object);
 }
