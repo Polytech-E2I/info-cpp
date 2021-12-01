@@ -17,7 +17,8 @@ int main(void)
     Rectangle rectangle(30,30,2,5);
     cout << endl << rectangle << " surface=" << rectangle.surface() << endl;
     auto* carre = new Carre(100,100,2);
-    cout << endl << *carre << " surface=" << carre->surface() << endl;
+    cout << endl << *carre << " surface=" << carre->surface() << endl << endl;
+
     cercle.deplace(50,50);
     cout << "déplacement " << endl;
     cout << cercle << endl << endl;
