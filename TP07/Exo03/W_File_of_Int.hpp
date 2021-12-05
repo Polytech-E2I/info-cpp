@@ -9,10 +9,17 @@ public:
         : std::ofstream
             (
                 filename,
-                std::ios_base::binary
-                    // On répète std::ios_base::binary dans le else ci-dessous
-                    // car 0 ne compile pas
-                    | (append ? std::ios::app : std::ios_base::binary)
+                std::ios::binary
+                    | (
+                        append
+                            // `ate | in` est nécessaire car `app` ne permet pas
+                            // de ramener le curseur en arrière et `ate` seul
+                            // provoque une troncature du fichier
+                            ? std::ios::ate | std::ios::in
+                            // On répète `binary` comme élément neutre car 0 ne
+                            // compile pas (pas du bon type)
+                            : std::ios::binary
+                    )
             )
     {}
     ~W_File_of_Int()
