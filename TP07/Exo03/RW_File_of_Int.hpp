@@ -13,6 +13,10 @@ public:
     ~RW_File_of_Int()
     {}
 
+    bool operator!();
+
+    void clear(std::ios_base::iostate state = std::ios_base::goodbit);
+
     void close();
 };
 

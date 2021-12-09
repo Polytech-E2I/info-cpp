@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-class W_File_of_Int : public std::ofstream
+class W_File_of_Int : protected std::ofstream
 {
 public:
     W_File_of_Int(const char* filename, bool append = false)
@@ -26,5 +26,11 @@ public:
     {}
 
     W_File_of_Int& operator<<(const std::intmax_t& value);
+
+    using std::ofstream::operator!;
+    using std::ofstream::seekp;
+    using std::ofstream::tellp;
+    using std::ofstream::clear;
+    using std::ofstream::close;
 };
 
