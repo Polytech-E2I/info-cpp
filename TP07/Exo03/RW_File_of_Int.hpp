@@ -13,19 +13,6 @@ public:
     ~RW_File_of_Int()
     {}
 
-    RW_File_of_Int& operator<<(const std::intmax_t& value)
-    {
-        W_File_of_Int::operator<<(value);
-
-        return *this;
-    }
-    RW_File_of_Int& operator>>(int& value)
-    {
-        R_File_of_Int::operator>>(value);
-
-        return *this;
-    }
-
     void close();
 };
 
