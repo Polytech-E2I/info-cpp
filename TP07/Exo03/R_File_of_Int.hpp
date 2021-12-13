@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+template <typename T>
 class R_File_of_Int : protected std::ifstream
 {
 public:
@@ -11,7 +12,13 @@ public:
     ~R_File_of_Int()
     {}
 
-    R_File_of_Int& operator>>(int& value);
+    R_File_of_Int& operator>>(T& value)
+    {
+        value = 0;
+        this->read(reinterpret_cast<char*>(&value), 1);
+
+        return *this;
+    }
 
     using std::ifstream::operator!;
     using std::ifstream::tellg;

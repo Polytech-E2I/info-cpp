@@ -9,14 +9,16 @@ using namespace std;
 
 int main()
 {
-    W_File_of_Int f_out("essai.fic");
+    using type_entier = long long;
+
+    W_File_of_Int<type_entier> f_out("essai.fic");
     if ( ! f_out )
     {
         cerr << "erreur à la création de 'essai.fic'\n";
         return 1;
     }
 
-    for(long long i=0; i<=10; i++) // Ecriture de 11 entiers dans le fichier
+    for(type_entier i=0; i<=10; i++) // Ecriture de 11 entiers dans le fichier
     {
         f_out << i;
     }
@@ -24,8 +26,8 @@ int main()
     // affiche: 11 éléments sont écrits dans le fichier.
     f_out.close();
 
-    R_File_of_Int f_in("essai.fic");
-    int entier;
+    R_File_of_Int<type_entier> f_in("essai.fic");
+    type_entier entier;
     if ( ! f_in )
     {
         cerr << "erreur à la création de essai.fic\n";
@@ -54,7 +56,7 @@ int main()
     f_in.close();
 
     /////////////////////////////////////////////////////////////////
-    RW_File_of_Int f_io("essai.fic"); //s’il existe, il n'est pas écrasé
+    RW_File_of_Int<type_entier> f_io("essai.fic"); //s’il existe, il n'est pas écrasé
     if ( ! f_io )
     {
         cerr << "erreur à la création de essai.fic\n";
@@ -65,7 +67,7 @@ int main()
     // se positionne à la fin du fichier
     cout<<"Il ya déjà " << f_io.tellp() << " éléments dans le fichier\n";
     // affiche: Il y a déjà 11 éléments dans le fichier
-    for(int i=11; i<=19; i++)
+    for(type_entier i=11; i<=19; i++)
     {
         f_io << i;
     }

@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+template <typename T>
 class W_File_of_Int : protected std::ofstream
 {
 public:
@@ -25,7 +26,14 @@ public:
     ~W_File_of_Int()
     {}
 
-    W_File_of_Int& operator<<(const std::intmax_t& value);
+    W_File_of_Int& operator<<(const T& value)
+    {
+        char char_value = static_cast<char>(value);
+
+        this->write(&char_value, 1);
+
+        return *this;
+    }
 
     using std::ofstream::operator!;
     using std::ofstream::seekp;
